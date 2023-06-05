@@ -8,7 +8,9 @@ let apiCall = function (city){
     response.json().then((data) => {
         console.log(data);
         document.querySelector('#city').innerHTML = data.name;
-        document.querySelector('#temp').innerHTML = data.main.temp;
+        document.querySelector('#temp').innerHTML = data.main.temp + '°<span>C</span>';
+        document.querySelector('#temp-max').innerHTML = data.main.temp_max + '°<span>C</span>';
+        document.querySelector('#temp-min').innerHTML = data.main.temp_min + '°<span>C</span>';
         document.querySelector('#humidity').innerHTML = data.main.humidity;
         document.querySelector('#weather-desc').innerHTML = data.weather[0].description;
         document.querySelector('#wind-spead').innerHTML = data.wind.speed;
