@@ -14,9 +14,7 @@ let apiCall = function (city){
         document.querySelector('#humidity').innerHTML = data.main.humidity;
         document.querySelector('#weather-desc').innerHTML = data.weather[0].description;
         document.querySelector('#wind-spead').innerHTML = data.wind.speed;
-        let weatherSrc = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-        $('#weather-img').attr('src', weatherSrc); 
-
+        document.querySelector('#weather-img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"; 
     })
 ).catch(err => console.log('Error : ' + err)); //ver como psar error
 
@@ -28,17 +26,22 @@ document.querySelector('form').addEventListener('submit', function(event) {
     event.preventDefault();
 
     let ville = document.querySelector('#inputCity').value;
-    //remplie et aue de letres y si es incorrecto
     
     const small = document.querySelector('#inputHelp')
-
+    // validation formulaire
+    // Le pattern à vérifier (i=(case-insensitive))
+    const pattern = new RegExp('^[A-Z]+$', 'i');
+    
     if(ville.length == 0) {
         small.innerHTML = "Veuillez bien remplir le champ";
         small.setAttribute('class', 'form-text text-danger mx-1');
-        return;
-        // alert('No has escrito nada en el usuario');
-        // return;
     }
+
+    else if (!pattern.test(ville)){
+        small.innerHTML = "Seules les lettres sont autorisées";
+        small.setAttribute('class', 'form-text text-danger mx-1');
+    }
+
     else{
         apiCall(ville);
         document.getElementById('inputCity').value ="";
