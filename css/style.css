@@ -21,7 +21,7 @@ header {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.copyright {
+footer {
     background-color: rgba(0, 0, 0, 0.05);
     font-variant-caps: petite-caps;
     padding: 0.5rem;
@@ -47,7 +47,7 @@ h1 {
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
 
-/* contrrol del flujo animacion */
+/* contrôle de flux d'animation */
 @keyframes scale {
     100% {
         transform: scale(1);
@@ -91,46 +91,33 @@ span:nth-child(6) {
     }
 }
 
+#carte-img{
+    margin-top: 1.5rem;
+    width: 19rem;
+}
+
 .card {
-    width: 46rem;
+    width: 45rem;
     height: 31rem;
 }
 
-#temperature,
-#wind-spead,
-#weather,
-#humidity {
+.box-container {
     width: 20rem;
     height: 12rem;
-}
-
-#wind-spead,
-#weather{
-    margin-top: 0.5em;
-}
-
-#temperature{
-    background-color: blue;
-}
-
-#wind-spead {
-    background-color: yellow;
-}
-
-#weather {
-    background-color: gray;
-}
-
-#humidity {
-    background-color: green;
+    background-color: rgb(127, 255, 168);
+    border-radius: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 #weather-img{
     width: 6rem;
 }
 
-#carte-img{
-    margin-top: 1.5rem;
-    width: 19rem;
-    
+/* première lettre majuscule */
+#weather-desc::first-letter {
+    text-transform: uppercase;
 }
+
