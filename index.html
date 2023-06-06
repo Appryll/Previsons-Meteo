@@ -42,7 +42,7 @@
     <main>
         <div class= "d-flex justify-content-evenly my-4">
             <!--Recherche-->
-            <div>
+            <div class="col-4">
                 <form>
                     <div class="form-group">
                         <label class="mb-2 ">Nom de la Ville</label>
@@ -56,13 +56,13 @@
                 <img id="carte-img" src="img/carte_france_villes.gif" alt="Carte France Villes">
             </div>
             <!--Card-->
-            <div class="card text-center">
+            <div class="col-8 card text-center">
                 <div class="card-header">
                     <h3 id="city"></h3>
                 </div>
                 <div class="card-body d-flex flex-wrap justify-content-around">
                     <!-- Temperature -->
-                    <div class="box-container row align-items-center">
+                    <div class="box-container row align-items-center" title="Info Température">
                         <i class="bi bi-thermometer"></i>
                         <div class="col-6">
                             <h3 id="temp"></h3>
@@ -79,17 +79,17 @@
                         </div>
                     </div>
                     <!-- Humidité -->
-                    <div class="box-container row align-items-center">
+                    <div class="box-container row align-items-center" title="Info Humidité">
                         <i class="bi bi-droplet"></i>
                         <h3 id="humidity"></h3>
                     </div>
                     <!--Temps-->
-                    <div class="box-container">
+                    <div class="box-container" title="Info Temp">
                         <img id="weather-img" alt="weather icon">
                         <h3 id="weather-desc"></h3>
                     </div>
                     <!--Vent-->
-                    <div class="box-container row align-items-center">
+                    <div class="box-container row align-items-center" title="Info Vent">
                         <i class="bi bi-wind"></i>
                         <h3 id="wind-spead"></h3>
                     </div>

@@ -6,29 +6,33 @@ let apiCall = function (city) {
     fetch(url).then((response) =>
         response.json().then((data) => {
             console.log(data);
-            document.querySelector('#city').innerHTML = data.name;
-            document.querySelector('#temp').innerHTML = data.main.temp + '°<span>C</span>';
-            document.querySelector('#temp-max').innerHTML = data.main.temp_max + '°<span>C</span>';
-            document.querySelector('#temp-min').innerHTML = data.main.temp_min + '°<span>C</span>';
-            document.querySelector('#humidity').innerHTML = data.main.humidity + '<span>%</span>';
-            document.querySelector('#weather-desc').innerHTML = data.weather[0].description;
-            document.querySelector('#wind-spead').innerHTML = data.wind.speed + '<span>km/h</span>';
-            document.querySelector('#weather-img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            if(data.cod == '200'){
+                document.querySelector('#city').innerHTML = data.name;
+                document.querySelector('#temp').innerHTML = data.main.temp + '°<span>C</span>';
+                document.querySelector('#temp-max').innerHTML = data.main.temp_max + '°<span>C</span>';
+                document.querySelector('#temp-min').innerHTML = data.main.temp_min + '°<span>C</span>';
+                document.querySelector('#humidity').innerHTML = data.main.humidity + '<span>%</span>';
+                document.querySelector('#weather-desc').innerHTML = data.weather[0].description;
+                document.querySelector('#wind-spead').innerHTML = data.wind.speed + '<span>km/h</span>';
+                document.querySelector('#weather-img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            }
+            else{
+                alert('La ville saisie est invalide');
+            }  
         })
-    ).catch(err => console.log('Error : ' + err)); //ver como psar error
+    ).catch(err => console.log('Error : ' + err));
 }
 
 // Ecouter d'evenement sur la soumission du formulaire
-
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
 
-    let ville = document.querySelector('#inputCity').value;
+    let ville = document.querySelector('#inputCity').value.toLowerCase();
 
     const small = document.querySelector('#inputHelp')
     // validation formulaire
-    // Le pattern à vérifier (i=(case-insensitive))
-    const pattern = new RegExp('^[A-Z]+$', 'i');
+    // Le pattern à vérifier
+    let pattern = /^[a-z][a-z\s]*$/;
 
     if (ville.length == 0) {
         small.innerHTML = "Veuillez bien remplir le champ";
