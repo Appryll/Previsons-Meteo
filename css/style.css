@@ -6,6 +6,7 @@
 html {
     scroll-behavior: smooth;
     height: 100%;
+    --res: calc(0.01 * 10vmin)
 }
 
 body {
@@ -33,7 +34,8 @@ a {
 }
 
 #logo {
-    width: 10rem;
+    max-width: 10rem;
+    width: 100%;
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
 }
@@ -45,6 +47,7 @@ h1 {
     text-align: center;
     transform: scale(0.94);
     animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
+    
 }
 
 /* contrôle de flux d'animation */
@@ -91,28 +94,39 @@ span:nth-child(6) {
     }
 }
 
-#carte-img{
-    margin-top: 1.5rem;
-    width: 19rem;
+/* fixe margin generé par .row*/
+.row {
+    margin: 0 !important;
 }
 
-.card {
-    width: 46rem;
-    height: 31rem;
+#zoom-carte {
+    width: 19rem;
+    height: 21rem;
+    background-image: url("../img/carte_france_villes.gif");
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    margin-top: 1rem;
+    border: 0.5px solid gainsboro;
+}
+
+#zoom-carte:hover {
+    cursor: pointer;
 }
 
 .box-container {
-    width: 21rem;
+    max-width: 21rem;
+    width: 100%;
     height: 12rem;
     background-color: rgb(127, 255, 168);
     border-radius: 2rem;
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
     box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
-#weather-img{
+#weather-img {
     width: 6rem;
 }
 
@@ -121,10 +135,31 @@ span:nth-child(6) {
     text-transform: uppercase;
 }
 
-.bi{
-    font-size: 45px;
+.bi {
+    font-size: 47px;
+    color: cornflowerblue;
 }
 
-.bi-arrow-up, .bi-arrow-down{
+.bi-arrow-up,
+.bi-arrow-down {
     font-size: 20px;
+}
+
+/* Responsive Font Size */
+@media (max-width: 1200px) {
+    h1{
+        font-size: calc(25px + 1vw);
+    }
+
+    h3{
+        font-size: calc(16px + 1vw);
+    }
+
+    h5{
+        font-size: calc(14px + 0.4vw);
+    }
+
+    footer{
+        font-size: calc(10px + 0.5vw);
+    }
 }
