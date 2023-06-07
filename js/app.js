@@ -37,16 +37,17 @@ window.addEventListener("load", function () {
         });
     };
 
-    // *** Appel à l'API poenWeather avec ville en parametre de fonction ***
+    // *** Appel à l'API OpenWeather avec ville en parametre de fonction ***
     const APIKEY = '351fe6a03e2ec53760bdf40301a77bc9';
 
     let apiCall = function (city) {
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=metric&lang=fr`;
         fetch(url).then((response) =>
             response.json().then((data) => {
-                console.log(data);
-                console.log(data.cod);
+                //console.log(data);
+                //console.log(data.cod);
                 if (data.cod == '200') {
+                    // si le code http response (data.code) est 200 => OK => Charge des informations
                     document.querySelector('#city').innerHTML = data.name;
                     document.querySelector('#temp').innerHTML = data.main.temp + '°<span>C</span>';
                     document.querySelector('#temp-max').innerHTML = data.main.temp_max + '°<span>C</span>';
@@ -56,8 +57,9 @@ window.addEventListener("load", function () {
                     document.querySelector('#wind-spead').innerHTML = data.wind.speed + '<span>km/h</span>';
                     document.querySelector('#weather-img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
                 }
+                // avec data.cod = 404
                 else {
-                    window.alert("La ville saisie est invalide");
+                    window.alert("La ville saisie est invalide.");
                 }
             })
         ).catch(err => console.log('Error : ' + err));
@@ -71,6 +73,7 @@ window.addEventListener("load", function () {
         const small = document.querySelector('#inputHelp')
 
         // validation formulaire
+        // Regular Expressions => accepte les lettres, les accents, les espaces blancs et les apostrophes
         let pattern = /^[a-zà-ü'\s]*$/;
 
         if (ville.length == 0) {

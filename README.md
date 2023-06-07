@@ -7,4 +7,8 @@
     /> 
 </p>
 
-(Ce code sert uniquement de test d'evaluation technique sur HTML/CSS/JavaScript !)
+<h2><u>Prévisions Météo</u></h2>
+
+<p>Cette petite application permet de retrouver les prévisions météorologiques par ville saisie. L'information est apportée par l'API météo OpenWeather.</p>
+
+<p><em>(Ce code sert uniquement de test d'evaluation technique sur HTML/CSS/JavaScript !)</em></p>
